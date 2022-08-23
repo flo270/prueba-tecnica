@@ -1,0 +1,65 @@
+﻿@model IEnumerable<PruebaTecnica_elecciones.Models.ResultdoElectoral>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listar Resultado Electoral</h2>
+@using (Html.BeginForm())
+{
+    <p>
+        Buscar por provincia o partido: @Html.TextBox("SearchString")
+        <input type="submit" value="Buscar" class="btn btn-success" />
+    </p>
+}
+<p>
+    @Html.ActionLink("Crear nuevo", "Crear")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.PorcentajeElectoral)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidadVotos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProvinciaPerteneciente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PartidoPerteneciente)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.PorcentajeElectoral)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cantidadVotos)
+            </td>
+            <td>
+                @PruebaTecnica_elecciones.Controllers.ResultdoElectoralController.Prov(item.ProvinciaPerteneciente)
+            </td>
+            <td>
+                @PruebaTecnica_elecciones.Controllers.ResultdoElectoralController.Partido(item.PartidoPerteneciente)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.IdRE }) |
+                @Html.ActionLink("Detallar", "Details", new { id = item.IdRE }) |
+                @Html.ActionLink("Borrar", "Delete", new { id = item.IdRE })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Imprimir", "Print")
+
+</p>

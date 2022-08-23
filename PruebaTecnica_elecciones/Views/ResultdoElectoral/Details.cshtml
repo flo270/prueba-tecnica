@@ -1,0 +1,58 @@
+﻿@model PruebaTecnica_elecciones.Models.ResultdoElectoral
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalle</h2>
+
+<div>
+    <h4>Resultdo Electoral</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PorcentajeElectoral)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PorcentajeElectoral)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidadVotos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidadVotos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProvinciaPerteneciente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProvinciaPerteneciente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartidoPerteneciente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartidoPerteneciente)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new {  id = Model.IdRE }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

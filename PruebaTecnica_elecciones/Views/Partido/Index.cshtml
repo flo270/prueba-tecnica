@@ -1,0 +1,35 @@
+﻿@model IEnumerable<PruebaTecnica_elecciones.Models.Partido>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de Partidos</h2>
+
+<p>
+    @Html.ActionLink("Crear", "Crear")
+</p>
+<table class="table">
+    <tr>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.NombrePartido)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.NombrePartido)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new {  id=item.IdPartido }) |
+            @Html.ActionLink("Detallar", "Details", new { id = item.IdPartido }) |
+            @Html.ActionLink("Borrar", "Delete", new { id = item.IdPartido })
+        </td>
+    </tr>
+}
+
+</table>

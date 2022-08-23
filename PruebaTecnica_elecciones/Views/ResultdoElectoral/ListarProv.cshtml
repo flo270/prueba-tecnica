@@ -1,0 +1,13 @@
+﻿@model IEnumerable<PruebaTecnica_elecciones.Models.Provincia>
+
+<select class=" form-control" id="ProvinciaPerteneciente" name="ProvinciaPerteneciente">
+
+
+    @foreach (var item in Model)
+    {
+
+        <option value="@item.IdProvincia"> @item.NombreProvincia </option>
+
+    }
+
+</select>

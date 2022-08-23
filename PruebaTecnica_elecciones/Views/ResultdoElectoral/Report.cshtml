@@ -1,0 +1,47 @@
+﻿@model IEnumerable<PruebaTecnica_elecciones.Models.ResultdoElectoral>
+
+@{
+    Layout=null;
+}
+
+<h1><img src="~/Imagenes/elecciones.jpg" width="75" height="50" > Reporte Resultados Electorales</h1>
+
+
+<table class="table">
+    <tr>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.PorcentajeElectoral)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidadVotos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProvinciaPerteneciente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PartidoPerteneciente)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.PorcentajeElectoral)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidadVotos)
+        </td>
+        <td>
+            @PruebaTecnica_elecciones.Controllers.ResultdoElectoralController.Prov(item.ProvinciaPerteneciente)
+        </td>
+        <td>
+            @PruebaTecnica_elecciones.Controllers.ResultdoElectoralController.Partido(item.PartidoPerteneciente)
+        </td>
+
+    </tr>
+}
+
+</table>

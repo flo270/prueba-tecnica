@@ -1,0 +1,34 @@
+﻿@model PruebaTecnica_elecciones.Models.Partido
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Esta seguro de eliminar Partido?</h3>
+<div>
+    <h4>Partido</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombrePartido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombrePartido)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Borrar" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,76 @@
+﻿@model PruebaTecnica_elecciones.Models.Provincia
+
+@{
+    ViewBag.Title = "Crear";
+}
+
+<h2>Crear</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Provincia</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NombreProvincia, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="form-control" id="NombreProvincia" name="NombreProvincia">
+                    <option>Buenos Aires</option>
+                    <option>Capital Federal</option>
+                    <option> Catamarca </option>
+                    <option>Chaco</option>
+                    <option>Chubut</option>
+                    <option>Córdoba</option>
+                    <option>Corrientes</option>
+                    <option>Entre Ríos </option>
+                    <option> Formosa</option>
+                    <option>Jujuy</option>
+                    <option>La Pampa </option>
+                    <option>La Rioja </option>
+                    <option>Mendoza</option>
+                    <option>Misiones</option>
+                    <option>Neuquén</option>
+                    <option>Río Negro </option>
+                    <option>Salta </option>
+                    <option>San Juan </option>
+                    <option>San Luis </option>
+                    <option> Santa Cruz</option>
+                    <option>Santa Fe </option>
+                    <option>Santiago del Estero </option>
+                    <option>Tierra del Fuego </option>
+                    <option>Tucumán </option>
+                </select>
+
+                
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CantidadVotantes, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CantidadVotantes, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CantidadVotantes, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Crear" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,36 @@
+﻿@model PruebaTecnica_elecciones.Models.Provincia
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Provincia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+       
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreProvincia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreProvincia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CantidadVotantes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CantidadVotantes)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdProvincia }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PruebaTecnicaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="PruebaTecnicaContexto" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Partido" EntityType="PruebaTecnicaModel.Partido" />
+    <EntitySet Name="Provincia" EntityType="PruebaTecnicaModel.Provincia" />
+    <EntitySet Name="ResultdoElectoral" EntityType="PruebaTecnicaModel.ResultdoElectoral" />
+    <AssociationSet Name="FK_ResultdoElectoral_Partido" Association="PruebaTecnicaModel.FK_ResultdoElectoral_Partido">
+      <End Role="Partido" EntitySet="Partido" />
+      <End Role="ResultdoElectoral" EntitySet="ResultdoElectoral" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResultdoElectoral_Provincia" Association="PruebaTecnicaModel.FK_ResultdoElectoral_Provincia">
+      <End Role="Provincia" EntitySet="Provincia" />
+      <End Role="ResultdoElectoral" EntitySet="ResultdoElectoral" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Partido">
+    <Key>
+      <PropertyRef Name="IdPartido" />
+    </Key>
+    <Property Name="IdPartido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombrePartido" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ResultdoElectoral" Relationship="PruebaTecnicaModel.FK_ResultdoElectoral_Partido" FromRole="Partido" ToRole="ResultdoElectoral" />
+  </EntityType>
+  <EntityType Name="Provincia">
+    <Key>
+      <PropertyRef Name="IdProvincia" />
+    </Key>
+    <Property Name="IdProvincia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreProvincia" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="CantidadVotantes" Type="Int32" />
+    <NavigationProperty Name="ResultdoElectoral" Relationship="PruebaTecnicaModel.FK_ResultdoElectoral_Provincia" FromRole="Provincia" ToRole="ResultdoElectoral" />
+  </EntityType>
+  <EntityType Name="ResultdoElectoral">
+    <Key>
+      <PropertyRef Name="IdRE" />
+    </Key>
+    <Property Name="IdRE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PorcentajeElectoral" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cantidadVotos" Type="Int32" />
+    <Property Name="ProvinciaPerteneciente" Type="Int32" />
+    <Property Name="PartidoPerteneciente" Type="Int32" />
+    <NavigationProperty Name="Partido" Relationship="PruebaTecnicaModel.FK_ResultdoElectoral_Partido" FromRole="ResultdoElectoral" ToRole="Partido" />
+    <NavigationProperty Name="Provincia" Relationship="PruebaTecnicaModel.FK_ResultdoElectoral_Provincia" FromRole="ResultdoElectoral" ToRole="Provincia" />
+  </EntityType>
+  <Association Name="FK_ResultdoElectoral_Partido">
+    <End Type="PruebaTecnicaModel.Partido" Role="Partido" Multiplicity="0..1" />
+    <End Type="PruebaTecnicaModel.ResultdoElectoral" Role="ResultdoElectoral" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Partido">
+        <PropertyRef Name="IdPartido" />
+      </Principal>
+      <Dependent Role="ResultdoElectoral">
+        <PropertyRef Name="PartidoPerteneciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResultdoElectoral_Provincia">
+    <End Type="PruebaTecnicaModel.Provincia" Role="Provincia" Multiplicity="0..1" />
+    <End Type="PruebaTecnicaModel.ResultdoElectoral" Role="ResultdoElectoral" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincia">
+        <PropertyRef Name="IdProvincia" />
+      </Principal>
+      <Dependent Role="ResultdoElectoral">
+        <PropertyRef Name="ProvinciaPerteneciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

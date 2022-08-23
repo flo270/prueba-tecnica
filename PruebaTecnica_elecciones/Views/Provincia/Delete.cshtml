@@ -1,0 +1,46 @@
+﻿@model PruebaTecnica_elecciones.Models.Provincia
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Esta seguro de eliminar la provincia?</h3>
+<div>
+    <h4>Provincia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+       
+
+        <dd>
+            @Html.DisplayFor(model => model.IdProvincia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreProvincia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreProvincia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CantidadVotantes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CantidadVotantes)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Borrar" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

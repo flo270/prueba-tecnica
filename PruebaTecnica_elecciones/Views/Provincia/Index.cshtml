@@ -1,0 +1,42 @@
+﻿@model IEnumerable<PruebaTecnica_elecciones.Models.Provincia>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listar Provincia</h2>
+
+<p>
+    @Html.ActionLink("Crear", "Crear")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.NombreProvincia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CantidadVotantes)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreProvincia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CantidadVotantes)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.IdProvincia }) |
+                @Html.ActionLink("Detallar", "Details", new { id = item.IdProvincia }) |
+                @Html.ActionLink("Borrar", "Delete", new { id = item.IdProvincia })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PruebaTecnicaModelStoreContainer" CdmEntityContainer="PruebaTecnicaContexto">
+    <EntitySetMapping Name="Partido">
+      <EntityTypeMapping TypeName="PruebaTecnicaModel.Partido">
+        <MappingFragment StoreEntitySet="Partido">
+          <ScalarProperty Name="NombrePartido" ColumnName="NombrePartido" />
+          <ScalarProperty Name="IdPartido" ColumnName="IdPartido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Provincia">
+      <EntityTypeMapping TypeName="PruebaTecnicaModel.Provincia">
+        <MappingFragment StoreEntitySet="Provincia">
+          <ScalarProperty Name="CantidadVotantes" ColumnName="CantidadVotantes" />
+          <ScalarProperty Name="NombreProvincia" ColumnName="NombreProvincia" />
+          <ScalarProperty Name="IdProvincia" ColumnName="IdProvincia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResultdoElectoral">
+      <EntityTypeMapping TypeName="PruebaTecnicaModel.ResultdoElectoral">
+        <MappingFragment StoreEntitySet="ResultdoElectoral">
+          <ScalarProperty Name="PartidoPerteneciente" ColumnName="PartidoPerteneciente" />
+          <ScalarProperty Name="ProvinciaPerteneciente" ColumnName="ProvinciaPerteneciente" />
+          <ScalarProperty Name="cantidadVotos" ColumnName="cantidadVotos" />
+          <ScalarProperty Name="PorcentajeElectoral" ColumnName="PorcentajeElectoral" />
+          <ScalarProperty Name="IdRE" ColumnName="IdRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

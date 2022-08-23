@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="84b0d774906d47b4807a7ab3913a3e05" Name="Diagram1">
+        <EntityTypeShape EntityType="PruebaTecnicaModel.Partido" Width="1.5" PointX="0.875" PointY="3.5" />
+        <EntityTypeShape EntityType="PruebaTecnicaModel.Provincia" Width="1.5" PointX="0.75" PointY="1.25" />
+        <EntityTypeShape EntityType="PruebaTecnicaModel.ResultdoElectoral" Width="1.5" PointX="3.625" PointY="1" />
+        <AssociationConnector Association="PruebaTecnicaModel.FK_ResultdoElectoral_Partido" />
+        <AssociationConnector Association="PruebaTecnicaModel.FK_ResultdoElectoral_Provincia" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
